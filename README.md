@@ -10,3 +10,5 @@ You need `sqlcmd` on your PATH (install with [SQL command-line tools](https://le
 That is all you need; with the repo open in Cursor, `.cursor/mcp.json` starts the server.
 
 Optional: open [`README-for-newbies.html`](README-for-newbies.html) in a browser (tabbed steps, diagram, troubleshooting).
+
+Example agent prompts (simple → advanced): [`SUGGESTED-PROMPTS.md`](SUGGESTED-PROMPTS.md).

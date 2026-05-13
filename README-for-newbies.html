@@ -101,6 +101,7 @@
     }
     ul.mini { margin: 0.4rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.85rem; }
     ul.mini li { margin-bottom: 0.35rem; }
+    .file-link { font-size: 0.85rem; color: var(--info); margin-bottom: 0.75rem; display: block; }
     code {
       font-family: ui-monospace, Consolas, monospace;
       font-size: 0.82em;
@@ -119,6 +120,7 @@
       <button type="button" role="tab" aria-selected="true" aria-controls="p-steps" id="t-steps">Steps</button>
       <button type="button" role="tab" aria-selected="false" aria-controls="p-flow" id="t-flow">Diagram</button>
       <button type="button" role="tab" aria-selected="false" aria-controls="p-bits" id="t-bits">Pieces</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="p-prompts" id="t-prompts">Prompts</button>
       <button type="button" role="tab" aria-selected="false" aria-controls="p-fix" id="t-fix">Stuck?</button>
     </div>
 
@@ -165,6 +167,19 @@
         <li><span class="tag need">Code</span><code>mcp/sql-server-run/sql-server-run.ps1</code> — reads <code>.env</code>, speaks MCP, calls sqlcmd.</li>
         <li><span class="tag risk">Local</span><code>.env</code> — your machine only; not in git.</li>
         <li><span class="tag do">Copy</span><code>.env.example</code> — safe template to duplicate.</li>
+        <li><span class="tag need">Ideas</span><code>SUGGESTED-PROMPTS.md</code> — example prompts for the agent.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="p-prompts" role="tabpanel" aria-labelledby="t-prompts" hidden>
+      <h2>What to ask the agent</h2>
+      <p class="file-link">Full copy-paste wording → <code>SUGGESTED-PROMPTS.md</code> (repo root).</p>
+      <ul class="mini">
+        <li><strong style="color:var(--ok)">Quick</strong> — List tables/views; describe columns for one table; map PK/FK relationships.</li>
+        <li><strong style="color:var(--info)">Quality</strong> — Profile nulls/distincts; find orphan FK rows; scan dates for impossible values.</li>
+        <li><strong style="color:var(--accent)">Modeling</strong> — Propose Kimball-style star schema views; SCD strategy; grain statements for facts.</li>
+        <li><strong style="color:var(--warn)">Big project</strong> — Full DB inspection → new mart schema (views) → HTML wireframe with tabs, colors, diagrams, plus executive summary (read-only SQL unless you allow DDL).</li>
+        <li><strong style="color:var(--muted)">Ops / reports</strong> — Index ideas; large-table summary; permission audit; metric dictionary or cohort SQL.</li>
       </ul>
     </section>
 
@@ -184,6 +199,7 @@
         't-steps': document.getElementById('p-steps'),
         't-flow': document.getElementById('p-flow'),
         't-bits': document.getElementById('p-bits'),
+        't-prompts': document.getElementById('p-prompts'),
         't-fix': document.getElementById('p-fix')
       };
       function show(id) {
