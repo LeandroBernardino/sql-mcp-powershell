@@ -8,3 +8,5 @@ You need `sqlcmd` on your PATH (install with [SQL command-line tools](https://le
 2. Copy `.env.example` to `.env` and set the variables it describes.
 
 That is all you need; with the repo open in Cursor, `.cursor/mcp.json` starts the server.
+
+Optional: open [`docs/onboarding.html`](docs/onboarding.html) in a browser for a short tabbed wireframe (steps, diagram, troubleshooting).
