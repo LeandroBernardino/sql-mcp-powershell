@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "sql-server-run": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/mcp/sql-server-run/sql-server-run.ps1"
+      ],
+      "env": {
+        "SQL_MCP_WORKSPACE_ROOT": "${workspaceFolder}"
+      }
+    }
+  }
+}
