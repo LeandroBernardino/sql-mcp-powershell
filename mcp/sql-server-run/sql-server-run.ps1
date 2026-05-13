@@ -2,8 +2,8 @@
 <#
   MCP (stdio, JSON-RPC) over sqlcmd only. Env:
   SQL_MCP_WORKSPACE_ROOT (or WORKSPACE_FOLDER) locates workspace; optional .env there sets:
-  SQL_SERVER / SQL_DATABASE / SQL_TRUST_CERT (friendly names), or
-  SQLCMDSERVER, SQLCMDDATABASE, SQLCMD_TRUST_CERT (sqlcmd names). SQLCMDUSER/SQLCMDPASSWORD still from process env if set elsewhere.
+  SQL_SERVER / SQL_DATABASE / SQL_TRUST_CERT / SQL_USER / SQL_PASSWORD (friendly names), or
+  SQLCMDSERVER, SQLCMDDATABASE, SQLCMD_TRUST_CERT, SQLCMDUSER, SQLCMDPASSWORD (sqlcmd names).
   SQLCMD_TRUST_CERT: set "0" to omit sqlcmd -C; unset or other values add -C.
 #>
 $ErrorActionPreference = 'Stop'
@@ -37,9 +37,13 @@ function Import-WorkspaceDotEnv {
             'SQL_SERVER' { $env:SQLCMDSERVER = $Value; break }
             'SQL_DATABASE' { $env:SQLCMDDATABASE = $Value; break }
             'SQL_TRUST_CERT' { $env:SQLCMD_TRUST_CERT = $Value; break }
+            'SQL_USER' { $env:SQLCMDUSER = $Value; break }
+            'SQL_PASSWORD' { $env:SQLCMDPASSWORD = $Value; break }
             'SQLCMDSERVER' { $env:SQLCMDSERVER = $Value; break }
             'SQLCMDDATABASE' { $env:SQLCMDDATABASE = $Value; break }
             'SQLCMD_TRUST_CERT' { $env:SQLCMD_TRUST_CERT = $Value; break }
+            'SQLCMDUSER' { $env:SQLCMDUSER = $Value; break }
+            'SQLCMDPASSWORD' { $env:SQLCMDPASSWORD = $Value; break }
             default { }
         }
     }
